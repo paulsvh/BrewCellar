@@ -1,0 +1,12 @@
+<h1>Welcome to your cellar <%=@user.username%>
+<br>
+<h2>Currently Stocked Brews</h2>
+
+<%@brews.each do |brew| %>
+    <div>
+        Brewery: <%=brew.brewery%>
+        Brand: <%=brew.beer_name%>
+        ABV%: <%=brew.abv%>
+        Packaging Date: <%=brew.package_date%>
+    </div>
+<%end%>
