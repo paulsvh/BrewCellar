@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    enable :sessions
 
     get '/users/:id' do
         if logged_in?

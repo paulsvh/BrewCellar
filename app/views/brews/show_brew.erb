@@ -1,3 +1,5 @@
+<%if @brew%>
+
 <p>Brewery: <%=@brew.brewery%></p>
 <p>Brand: <%=@brew.beer_name%></p>
 <p>ABV%: <%=@brew.abv%></p>
@@ -12,3 +14,7 @@
 <br>
 <br>
 <a href="/users/show_cellar">Back To Your Cellar</a>
+<%else%>
+<p>You don't have any brews in your cellar!</p>
+<a href="/brews/new">Add A New Brew To Your Cellar</a>
+<%end%>
