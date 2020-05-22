@@ -5,7 +5,7 @@ class BrewsController < ApplicationController
             redirect to '/login'
         else
             @brews = Brew.all
-            erb :'brews/brews'
+            erb :'users/show_cellar'
         end
     end
 
@@ -49,7 +49,7 @@ class BrewsController < ApplicationController
             if @brew && @brew.user == current_user
                 erb :'/brews/edit_brew'
             else
-                redirect to '/brews'
+                redirect to '/show_cellar'
             end
         else
             redirect to '/login'
@@ -69,7 +69,7 @@ class BrewsController < ApplicationController
                         redirect to "/brews/#{@brew.id}/edit"
                     end
                 else
-                    redirect to '/brews'
+                    redirect to '/show_cellar'
                 end
             end
         else
@@ -83,7 +83,7 @@ class BrewsController < ApplicationController
             if @brew && @brew.user == current_user
                 @brew.delete
             end
-            redirect to '/brews'
+            redirect to '/show_cellar'
         else
             redirect to '/login'
         end

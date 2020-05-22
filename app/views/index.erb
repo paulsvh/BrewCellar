@@ -3,7 +3,7 @@
 
 <nav>
     <%if logged_in?%>
-        <a href="/brews">Go To My Cellar</a>
+        <a href="/users/show_cellar">Go To My Cellar</a>
         <a href="/logout">Log Out</a>
         <p>Welcome, <%=current_user.username%></p>
     <%else%>
