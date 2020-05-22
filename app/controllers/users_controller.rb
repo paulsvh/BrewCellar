@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
             redirect to '/signup'
         else
-            @user = User.new(username: params[:username]), email: params[:email], password: params[:password])
+            @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
             @user.save
             session[:user_id] = @user.id
             redirect to '/brews'
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
     get '/logout' do
         if logged_in?
-            session.destroy
+            session.clear
             redirect to '/login'
         else
             redirect to '/'
