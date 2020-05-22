@@ -1,0 +1,9 @@
+<h2>Edit This Brew</h2>
+<form action="/brews/<%=@brew.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Brewery: <input type="text" name="brewery" value="<%=@brew.brewery"></p>
+    <p>Brand: <input type="text" name="beer_name" value="<%=@brew.beer_name"></p>
+    <p>ABV%: <input type="text" name="abv" value="<%=@brew.abv"></p>
+    <p>Packaging Date: <input type="text" name="package_date" value="<%=@brew.package_date"></p>
+    <input type="submit" value="Submit">
+</form>
