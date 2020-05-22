@@ -1,0 +1,11 @@
+<p>Brewery: <%=brew.brewery%></p>
+<p>Brand: <%=brew.beer_name%></p>
+<p>ABV%: <%=brew.abv%></p>
+<p>Packaging Date: <%=brew.package_date%></p>
+
+<form action="/brews/<%=brew.id%>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete This Brew">
+</form>
+
+<a href="/brews/<%=@brew.id%>/edit">Edit This Brew</a>

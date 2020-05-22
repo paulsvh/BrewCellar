@@ -26,7 +26,7 @@ class BrewsController < ApplicationController
                 if @brew.save
                     redirect to '/brews/#{@brew.id}'
                 else
-                    redicect to 'brews/new'
+                    redirect to 'brews/new'
                 end
             end
         else
@@ -34,7 +34,12 @@ class BrewsController < ApplicationController
         end
     end
 
-
+    get '/brews/:id' do
+        if logged_in?
+            @brew = Brew.find_by_id(params[:id])
+            erb :'brews/show_brew'
+        else
+            redirect to '/login'    
 
 
 
