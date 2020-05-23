@@ -4,7 +4,7 @@ class BrewsController < ApplicationController
         if !logged_in?
             redirect to '/login'
         else
-            @brews = Brew.all
+            @brews = current_user.brews.all
             erb :'/brews/brews'
         end
     end
@@ -37,7 +37,11 @@ class BrewsController < ApplicationController
     get '/brews/:id' do
         if logged_in?
             @brew = Brew.find_by_id(params[:id])
-            erb :'brews/show_brew'
+            if @brew && @brew.user == current_user
+                erb :'brews/show_brew'
+            else
+                redirect to '/brews'
+            end
         else
             redirect to '/login'    
         end
