@@ -7,7 +7,7 @@
 
 -INSTALL
 
--To run this app, clone and this repository, open it in your preferred editor, run bundle install, run shotgun, and use your preferred web browser to navigate to the shotgun hosting location.
+-To run this app, clone this repository, open it in your preferred editor, run bundle install, run shotgun, and use your preferred web browser to navigate to the shotgun hosting location.
 
 -LICENSE
 
