@@ -4,13 +4,15 @@
 
 <%@brews.each do |brew| %>
     <div>
-        <p>Brewery: <%=brew.brewery%></p>
-        <p>Brand: <%=brew.beer_name%></p>
-        <p>ABV%: <%=brew.abv%></p>
-        <p>Packaging Date: <%=brew.package_date%></p>
+        <p><b>Brewery:</b> <%=brew.brewery%></p>
+        <p><b>Brand:</b> <%=brew.beer_name%></p>
+        <p><b>ABV%:</b> <%=brew.abv%></p>
+        <p><b>Packaging Date:</b> <%=brew.package_date%></p>
+        <a href="/brews/<%=brew.id%>/edit">Edit This Brew</a>
+        <br>
+        <br>
+        <p><b>---------------------------------</b></p>
     </div>
-    <br>
-    <br>
 <%end%>
 
 <a href="/brews/new">Add A New Brew To Your Cellar</a>
