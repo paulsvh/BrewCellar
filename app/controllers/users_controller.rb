@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/'
         else
+            flash[:error] = "Please log in."
             redirect '/login'
         end
         @user = User.find(params[:id])
@@ -19,12 +20,14 @@ class UsersController < ApplicationController
         if !logged_in?
             erb :'users/create_user'
         else
+            flash[:error] = "You're already logged in!"
             redirect to '/'
         end
     end
 
     post '/signup' do
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
+            flash[:error] = "You must create a username, an email and a password to continue."
             redirect to '/signup'
         else
             @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -38,6 +41,7 @@ class UsersController < ApplicationController
         if !logged_in?
             erb :'users/login'
         else
+            flash[:error] = "You're already logged in!"
             redirect to '/'
         end
     end
@@ -56,8 +60,10 @@ class UsersController < ApplicationController
     get '/logout' do
         if logged_in?
             session.clear
+            flash[:error] = "You have been logged out."
             redirect to '/login'
         else
+            flash[:error] = "You are not logged in."
             redirect to '/'
         end
     end
