@@ -48,6 +48,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect to '/'
         else
+            flash[:error] = "No account with that username and password was found, please sign up!"
             redirect to '/signup'
         end
     end
