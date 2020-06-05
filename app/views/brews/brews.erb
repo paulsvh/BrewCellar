@@ -11,6 +11,12 @@
         <a href="/brews/<%=brew.id%>/edit">Edit This Brew</a>
         <br>
         <br>
+        <form action="/brews/<%=brew.id%>/delete" method="post">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete This Brew">
+        </form>
+        <br>
+        <br>
         <p><b>---------------------------------</b></p>
     </div>
 <%end%>
